@@ -1,6 +1,8 @@
 package m.castellan.animations;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Explode;
 import android.transition.Scene;
@@ -26,6 +28,14 @@ public class MainActivity extends AppCompatActivity {
         cena1 = Scene.getSceneForLayout(root, R.layout.activity_main, this);
         cena2 = Scene.getSceneForLayout(root, R.layout.activity_main2, this);
         img = findViewById(R.id.imageView);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this).toBundle();
+                Intent intent = new Intent(MainActivity.this,TesteAct.class);
+                startActivity(intent,bundle);
+            }
+        });
 
     }
 
